@@ -23,6 +23,7 @@ import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
+import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
@@ -31,107 +32,117 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+import Font from '@ckeditor/ckeditor5-font/src/font';
+import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters';
+import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Mention from '@ckeditor/ckeditor5-mention/src/mention';
+
+import './custom.css';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 const customBackgroundColorPalette = [
 	{
-		color: 'hsl(0,0%,100%)', // #FFFFFF
+		color: '#FFFFFF',
 		label: 'SB White'
 	},
 	{
-		color: 'hsl(217.2,77.5%,60%)', // #4a86e8
+		color: '#1C48B4',
+		label: 'SB Blue'
+	},
+	{
+		color: '#4a86e8',
 		label: 'SB Mid Blue'
 	},
 	{
-		color: 'hsl(36,100%,50%)', // #ff9900
-		label: 'SB Light Blue'
-	},
-	{
-		color: 'hsl(170.3,75.6%,40.2%)', // #19b49b
+		color: '#19b49b',
 		label: 'SB Green'
 	},
 	{
-		color: 'hsl(104.3,35.4%,87.3%)', // #d9ead3
+		color: '#d9ead3',
 		label: 'SB Light Green'
 	},
 	{
-		color: 'hsl(0,0%,60%)', // #999999
+		color: '#999999',
 		label: 'SB Grey'
 	},
 	{
-		color: 'hsl(0,0%,71.8%)', // #b7b7b7
+		color: '#b7b7b7',
 		label: 'SB Light Grey'
 	},
 	{
-		color: 'hsl(36,100%,50%)', // #ff9900
+		color: '#ff9900',
 		label: 'SB Orange'
 	},
 	{
-		color: 'hsl(0,100%,50%)', // #FF0000
+		color: '#FF0000',
 		label: 'SB Red'
 	},
 	{
-		color: 'hsl(0,65.9%,75.9%)', // #ea9999
+		color: '#ea9999',
 		label: 'SB Mid Red'
 	},
 	{
-		color: 'rgb(244,204,204)', // #f4cccc
+		color: '#f4cccc',
 		label: 'SB Light Red'
 	},
 	{
-		color: 'hsl(276,100%,50%)', // #9900ff
+		color: '#9900ff',
 		label: 'SB Purple'
 	}
 ];
 
 const customBorderColorPalette = [
 	{
-		color: 'hsl(0,0%,0%)', // #000000
+		color: '#000000',
 		label: 'SB Black'
 	},
 	{
-		color: 'hsl(0,0%,100%)', // #FFFFFF
+		color: '#FFFFFF',
 		label: 'SB White'
 	},
 	{
-		color: 'hsl(0,0%,60%)', // #999999
+		color: '#999999',
 		label: 'SB Grey'
 	},
 	{
-		color: 'hsl(0,0%,71.8%)', // #b7b7b7
+		color: '#b7b7b7',
 		label: 'SB Light Grey'
 	}
 ];
 
-/* KEEP for use in the style template
-const customColorPalette = [
+const customFontColorPalette = [
 	{
-		color: 'hsl(0,0%,0%)', // #000000
+		color: '#000000',
 		label: 'SB Black'
 	},
 	{
-		color: 'hsl(0,0%,100%)', // #FFFFFF
+		color: '#FFFFFF',
 		label: 'SB White'
 	},
 	{
-		color: 'hsl(222.6,73.1%,40.8%)', // #1C48B4
+		color: '#1C48B4',
 		label: 'SB Blue'
 	},
 	{
-		color: 'hsl(36,100%,50%)', // #ff9900
+		color: '#ff9900',
 		label: 'SB Orange'
 	},
 	{
-		color: 'hsl(0,100%,50%)', // #FF0000
+		color: '#FF0000',
 		label: 'SB Red'
 	},
 	{
-		color: 'hsl(276,100%,50%)', // #9900ff
+		color: '#9900ff',
 		label: 'SB Purple'
 	}
 ];
-*/
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
@@ -152,6 +163,7 @@ ClassicEditor.builtinPlugins = [
 	Indent,
 	Link,
 	List,
+	TodoList,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
@@ -159,31 +171,111 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TableProperties,
 	TableCellProperties,
-	TextTransformation
+	TextTransformation,
+	Font,
+	FontFamily,
+	Highlight,
+	HorizontalLine,
+	PageBreak,
+	RemoveFormat,
+	SpecialCharacters,
+	SpecialCharactersEssentials,
+	Alignment,
+	Mention
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
+	heading: {
+		options: [
+			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+			{ model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+			{ model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+			{ model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+			{ model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
+			{ model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
+			{
+				model: 'title',
+				view: {
+					name: 'h1',
+					classes: 'title'
+				},
+				title: 'Title',
+				class: 'ck-heading_heading1_title',
+				converterPriority: 'high'
+			},
+			{
+				model: 'subtitle',
+				view: {
+					name: 'h2',
+					classes: 'subtitle'
+				},
+				title: 'Subtitle',
+				class: 'ck-heading_heading2_subtitle',
+				converterPriority: 'high'
+			}
+		]
+	},
+	fontFamily: {
+		options: [
+			'default',
+			'Nunito, Ubuntu, sans-serif',
+			'Lato, Arial, sans-serif',
+			'Ubuntu Mono, Courier New, Courier, monospace'
+		]
+	},
+	fontSize: {
+		options: [
+			9,
+			10,
+			'default',
+			11,
+			12,
+			24,
+			36,
+			48
+		]
+	},
+	fontColor: {
+		colors: customFontColorPalette
+	},
+	fontBackgroundColor: {
+		colors: customBackgroundColorPalette
+	},
 	toolbar: {
 		items: [
 			'heading',
+			'fontFamily',
+			'fontSize',
+			'fontColor',
+			'fontBackgroundColor',
+			'highlight',
 			'|',
 			'bold',
 			'italic',
-			'link',
-			'bulletedList',
-			'numberedList',
+			'removeFormat',
 			'|',
 			'indent',
 			'outdent',
+			'alignment',
 			'|',
-			'imageUpload',
+			'bulletedList',
+			'numberedList',
 			'blockQuote',
-			'insertTable',
-			'mediaEmbed',
+			'|',
 			'undo',
-			'redo'
-		]
+			'redo',
+			'|',
+			'insertTable',
+			'todoList',
+			'horizontalLine',
+			'specialCharacters',
+			'pageBreak',
+			'imageUpload',
+			'link',
+			'mediaEmbed'
+		],
+		shouldNotGroupWhenFull: true
 	},
 	image: {
 		toolbar: [
