@@ -34,34 +34,104 @@ import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperti
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
+const customBackgroundColorPalette = [
+	{
+		color: 'hsl(0,0%,100%)', // #FFFFFF
+		label: 'SB White'
+	},
+	{
+		color: 'hsl(217.2,77.5%,60%)', // #4a86e8
+		label: 'SB Mid Blue'
+	},
+	{
+		color: 'hsl(36,100%,50%)', // #ff9900
+		label: 'SB Light Blue'
+	},
+	{
+		color: 'hsl(170.3,75.6%,40.2%)', // #19b49b
+		label: 'SB Green'
+	},
+	{
+		color: 'hsl(104.3,35.4%,87.3%)', // #d9ead3
+		label: 'SB Light Green'
+	},
+	{
+		color: 'hsl(0,0%,60%)', // #999999
+		label: 'SB Grey'
+	},
+	{
+		color: 'hsl(0,0%,71.8%)', // #b7b7b7
+		label: 'SB Light Grey'
+	},
+	{
+		color: 'hsl(36,100%,50%)', // #ff9900
+		label: 'SB Orange'
+	},
+	{
+		color: 'hsl(0,100%,50%)', // #FF0000
+		label: 'SB Red'
+	},
+	{
+		color: 'hsl(0,65.9%,75.9%)', // #ea9999
+		label: 'SB Mid Red'
+	},
+	{
+		color: 'rgb(244,204,204)', // #f4cccc
+		label: 'SB Light Red'
+	},
+	{
+		color: 'hsl(276,100%,50%)', // #9900ff
+		label: 'SB Purple'
+	}
+];
+
+const customBorderColorPalette = [
+	{
+		color: 'hsl(0,0%,0%)', // #000000
+		label: 'SB Black'
+	},
+	{
+		color: 'hsl(0,0%,100%)', // #FFFFFF
+		label: 'SB White'
+	},
+	{
+		color: 'hsl(0,0%,60%)', // #999999
+		label: 'SB Grey'
+	},
+	{
+		color: 'hsl(0,0%,71.8%)', // #b7b7b7
+		label: 'SB Light Grey'
+	}
+];
+
+/* KEEP for use in the style template
 const customColorPalette = [
 	{
-		color: 'hsl(4, 90%, 58%)',
-		label: 'Red'
+		color: 'hsl(0,0%,0%)', // #000000
+		label: 'SB Black'
 	},
 	{
-		color: 'hsl(340, 82%, 52%)',
-		label: 'Pink'
+		color: 'hsl(0,0%,100%)', // #FFFFFF
+		label: 'SB White'
 	},
 	{
-		color: 'hsl(291, 64%, 42%)',
-		label: 'Purple'
+		color: 'hsl(222.6,73.1%,40.8%)', // #1C48B4
+		label: 'SB Blue'
 	},
 	{
-		color: 'hsl(262, 52%, 47%)',
-		label: 'Deep Purple'
+		color: 'hsl(36,100%,50%)', // #ff9900
+		label: 'SB Orange'
 	},
 	{
-		color: 'hsl(231, 48%, 48%)',
-		label: 'Indigo'
+		color: 'hsl(0,100%,50%)', // #FF0000
+		label: 'SB Red'
 	},
 	{
-		color: 'hsl(207, 90%, 54%)',
-		label: 'Blue'
+		color: 'hsl(276,100%,50%)', // #9900ff
+		label: 'SB Purple'
 	}
-
-	// ...
 ];
+*/
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
@@ -131,16 +201,13 @@ ClassicEditor.defaultConfig = {
 			'tableProperties',
 			'tableCellProperties'
 		],
-		// Configuration of the TableProperties plugin.
 		tableProperties: {
-			borderColors: customColorPalette,
-			backgroundColors: customColorPalette
+			borderColors: customBorderColorPalette,
+			backgroundColors: customBackgroundColorPalette
 		},
-
-		// Configuration of the TableCellProperties plugin.
 		tableCellProperties: {
-			borderColors: customColorPalette,
-			backgroundColors: customColorPalette
+			borderColors: customBorderColorPalette,
+			backgroundColors: customBackgroundColorPalette
 		}
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
