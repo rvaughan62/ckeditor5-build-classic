@@ -231,9 +231,12 @@ ClassicEditor.defaultConfig = {
 			'default',
 			11,
 			12,
+			14,
+			16,
 			24,
 			36,
-			48
+			48,
+			75
 		]
 	},
 	fontColor: {
