@@ -29,8 +29,39 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
 
 export default class ClassicEditor extends ClassicEditorBase {}
+
+const customColorPalette = [
+	{
+		color: 'hsl(4, 90%, 58%)',
+		label: 'Red'
+	},
+	{
+		color: 'hsl(340, 82%, 52%)',
+		label: 'Pink'
+	},
+	{
+		color: 'hsl(291, 64%, 42%)',
+		label: 'Purple'
+	},
+	{
+		color: 'hsl(262, 52%, 47%)',
+		label: 'Deep Purple'
+	},
+	{
+		color: 'hsl(231, 48%, 48%)',
+		label: 'Indigo'
+	},
+	{
+		color: 'hsl(207, 90%, 54%)',
+		label: 'Blue'
+	}
+
+	// ...
+];
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
@@ -56,6 +87,8 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
+	TableProperties,
+	TableCellProperties,
 	TextTransformation
 ];
 
@@ -94,8 +127,21 @@ ClassicEditor.defaultConfig = {
 		contentToolbar: [
 			'tableColumn',
 			'tableRow',
-			'mergeTableCells'
-		]
+			'mergeTableCells',
+			'tableProperties',
+			'tableCellProperties'
+		],
+		// Configuration of the TableProperties plugin.
+		tableProperties: {
+			borderColors: customColorPalette,
+			backgroundColors: customColorPalette
+		},
+
+		// Configuration of the TableCellProperties plugin.
+		tableCellProperties: {
+			borderColors: customColorPalette,
+			backgroundColors: customColorPalette
+		}
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
