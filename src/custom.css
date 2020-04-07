@@ -1,0 +1,4 @@
+:root {
+    /* Overrides the default font size in the theme. */
+    --ck-font-size-base: 11px;
+}
