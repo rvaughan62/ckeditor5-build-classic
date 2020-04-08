@@ -43,6 +43,9 @@ import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specia
 import SpecialCharactersEssentials from '@ckeditor/ckeditor5-special-characters/src/specialcharactersessentials';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
+import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
+
+import SbpRecommendationBox from 'ckeditor5-sbp-plugins/src/sbp-box';
 
 import './custom.css';
 
@@ -183,7 +186,9 @@ ClassicEditor.builtinPlugins = [
 	SpecialCharacters,
 	SpecialCharactersEssentials,
 	Alignment,
-	Mention
+	Mention,
+	SbpRecommendationBox,
+	Autosave
 ];
 
 // Editor configuration.
@@ -278,7 +283,8 @@ ClassicEditor.defaultConfig = {
 			'pageBreak',
 			'imageUpload',
 			'link',
-			'mediaEmbed'
+			'mediaEmbed',
+			'sbpRecommendationBox'
 		],
 		shouldNotGroupWhenFull: true
 	},
@@ -310,3 +316,13 @@ ClassicEditor.defaultConfig = {
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
+
+/*
+	CONFIGURING AUTOSAVE
+	autosave: {
+			waitingTime: 5000, // in ms
+			save( editor ) {
+				return saveData( editor.getData() );
+			}
+		},
+*/
