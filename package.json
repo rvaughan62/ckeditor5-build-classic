@@ -97,13 +97,16 @@
   },
   "dependencies": {
     "@ckeditor/ckeditor5-alignment": "^18.0.0",
+    "@ckeditor/ckeditor5-autosave": "^18.0.0",
     "@ckeditor/ckeditor5-font": "^18.0.0",
     "@ckeditor/ckeditor5-highlight": "^18.0.0",
     "@ckeditor/ckeditor5-horizontal-line": "^18.0.0",
     "@ckeditor/ckeditor5-mention": "^18.0.0",
     "@ckeditor/ckeditor5-page-break": "^18.0.0",
     "@ckeditor/ckeditor5-remove-format": "^18.0.0",
+    "@ckeditor/ckeditor5-sbp-plugins": "github:rvaughan62/ckeditor5-sbp-plugins",
     "@ckeditor/ckeditor5-special-characters": "^18.0.0",
-    "@ckeditor/ckeditor5-widget": "^18.0.0"
+    "@ckeditor/ckeditor5-widget": "^18.0.0",
+    "ckeditor5-sbp-plugins": "github:rvaughan62/ckeditor5-sbp-plugins"
   }
 }
