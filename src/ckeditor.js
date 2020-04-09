@@ -45,8 +45,8 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 
-import CustomElementPlugin from 'ckeditor5-custom-element/src/customelement';
 import SbpRecommendationBox from 'ckeditor5-sbp-plugins/src/sbp-box';
+import SbpAuthorsNoteBox from 'ckeditor5-sbp-plugins/src/sbp-authors-box';
 
 import './custom.css';
 
@@ -189,8 +189,8 @@ ClassicEditor.builtinPlugins = [
 	Alignment,
 	Mention,
 	SbpRecommendationBox,
-	Autosave,
-	CustomElementPlugin
+	SbpAuthorsNoteBox,
+	Autosave
 ];
 
 // Editor configuration.
@@ -287,8 +287,7 @@ ClassicEditor.defaultConfig = {
 			'link',
 			'mediaEmbed',
 			'sbpRecommendationBox',
-			'custom-element-tagname1',
-			'custom-element-tagname2'
+			'sbpAuthorsNoteBox'
 		],
 		shouldNotGroupWhenFull: true
 	},
@@ -317,29 +316,12 @@ ClassicEditor.defaultConfig = {
 			backgroundColors: customBackgroundColorPalette
 		}
 	},
-	CustomElement: {
-		items: [
-			{
-				tag: 'tagname1',
-				placeholder: 'some text',
-				attributes: { name: 'ABCD' },
-				inline: false,
-				editable: false
-			},
-			{
-				tag: 'tagname2',
-				placeholder: 'other text',
-				attributes: { name: 'CDEF' },
-				inline: true,
-				editable: true
-			}
-		]
-	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
 
 /*
+	*** WARNING: If autosave is on in one editor on a page, it seems all editors call it....
 	CONFIGURING AUTOSAVE
 	autosave: {
 			waitingTime: 5000, // in ms
