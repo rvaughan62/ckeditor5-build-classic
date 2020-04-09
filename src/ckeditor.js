@@ -45,6 +45,7 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 
+import CustomElementPlugin from 'ckeditor5-custom-element/src/customelement';
 import SbpRecommendationBox from 'ckeditor5-sbp-plugins/src/sbp-box';
 
 import './custom.css';
@@ -188,7 +189,8 @@ ClassicEditor.builtinPlugins = [
 	Alignment,
 	Mention,
 	SbpRecommendationBox,
-	Autosave
+	Autosave,
+	CustomElementPlugin
 ];
 
 // Editor configuration.
@@ -284,7 +286,9 @@ ClassicEditor.defaultConfig = {
 			'imageUpload',
 			'link',
 			'mediaEmbed',
-			'sbpRecommendationBox'
+			'sbpRecommendationBox',
+			'custom-element-tagname1',
+			'custom-element-tagname2'
 		],
 		shouldNotGroupWhenFull: true
 	},
@@ -312,6 +316,24 @@ ClassicEditor.defaultConfig = {
 			borderColors: customBorderColorPalette,
 			backgroundColors: customBackgroundColorPalette
 		}
+	},
+	CustomElement: {
+		items: [
+			{
+				tag: 'tagname1',
+				placeholder: 'some text',
+				attributes: { name: 'ABCD' },
+				inline: false,
+				editable: false
+			},
+			{
+				tag: 'tagname2',
+				placeholder: 'other text',
+				attributes: { name: 'CDEF' },
+				inline: true,
+				editable: true
+			}
+		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'

@@ -107,6 +107,7 @@
     "@ckeditor/ckeditor5-sbp-plugins": "github:rvaughan62/ckeditor5-sbp-plugins",
     "@ckeditor/ckeditor5-special-characters": "^18.0.0",
     "@ckeditor/ckeditor5-widget": "^18.0.0",
+    "ckeditor5-custom-element": "^6.0.0",
     "ckeditor5-sbp-plugins": "github:rvaughan62/ckeditor5-sbp-plugins"
   }
 }
