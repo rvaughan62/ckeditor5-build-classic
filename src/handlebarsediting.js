@@ -11,6 +11,7 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import AttributeCommand from '@ckeditor/ckeditor5-basic-styles/src/attributecommand';
 
 const HANDLEBARS = 'handlebars';
+const CODE = 'code';
 
 export default class HandlebarsEditing extends Plugin {
 	/**
@@ -27,19 +28,15 @@ export default class HandlebarsEditing extends Plugin {
 		const editor = this.editor;
 
 		editor.model.schema.extend( '$text', { allowAttributes: HANDLEBARS } );
-		editor.model.schema.setAttributeProperties( HANDLEBARS, {
+		editor.model.schema.setAttributeProperties( CODE, {
 			isFormatting: true,
-			copyOnEnter: true
+			copyOnEnter: true,
+			class: HANDLEBARS
 		} );
 
 		editor.conversion.attributeToElement( {
 			model: HANDLEBARS,
-			view: 'handlebars',
-			upcastAlso: {
-				styles: {
-					'word-wrap': 'break-word'
-				}
-			}
+			view: { name: CODE, classes: HANDLEBARS }
 		} );
 
 		// Create code command.

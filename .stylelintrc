@@ -1,6 +1,3 @@
 {
-	"extends": "stylelint-config-ckeditor5",
-	"rules": {
-		"selector-type-no-unknown": [true, { ignoreTypes: ["handlebars"] }]
-	}
+	"extends": "stylelint-config-ckeditor5"
 }

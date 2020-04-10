@@ -1,7 +1,5 @@
-/*eslint-disable */
-.ck-content handlebars {
-	background-color: hsla(0, 0%, 78%, 0.3);
+.ck-content .handlebars {
 	padding: .15em;
 	border-radius: 2px;
+	border: 1px solid #ff9900;
 }
-/*eslint-enable */
