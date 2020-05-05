@@ -9,12 +9,14 @@ export default class ReactPluginEditing extends Plugin {
 	}
 
 	init() {
-		this._defineSchema();
-		this._defineConverters();
+		if ( this.editor.config.get( 'react' ) ) {
+			this._defineSchema();
+			this._defineConverters();
 
-		this.editor.config.get( 'react' ).forEach( c => {
-			this.editor.commands.add( 'insert' + c.name, new InsertReactComponentCommand( this.editor, c.name ) );
-		} );
+			this.editor.config.get( 'react' ).forEach( c => {
+				this.editor.commands.add( 'insert' + c.name, new InsertReactComponentCommand( this.editor, c.name ) );
+			} );
+		}
 	}
 
 	_defineSchema() {
