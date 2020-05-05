@@ -50,6 +50,7 @@ import SbpRecommendationBox from 'ckeditor5-sbp-plugins/src/sbp-box';
 import SbpAuthorsNoteBox from 'ckeditor5-sbp-plugins/src/sbp-authors-box';
 import Handlebars from './handlebars';
 import SbpAutoformat from './sbpautoformat';
+import ReactPluginEditing from './react-plugin-editing';
 
 import './custom.css';
 
@@ -196,7 +197,8 @@ ClassicEditor.builtinPlugins = [
 	SbpAuthorsNoteBox,
 	Autosave,
 	Handlebars,
-	SbpAutoformat
+	SbpAutoformat,
+	ReactPluginEditing
 ];
 
 // Editor configuration.
