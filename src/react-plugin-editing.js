@@ -57,22 +57,8 @@ export default class ReactPluginEditing extends Plugin {
 				}
 			} );
 
-			// <react> converters (model → data view)
-			conversion.for( 'dataDowncast' ).elementToElement( {
-				model: c.name,
-				view: ( modelElement, viewWriter ) => {
-					// In the data view, the model <react> corresponds to:
-					//
-					// <section class="className" data-id="..."></section>
-					return viewWriter.createEmptyElement( 'section', {
-						class: c.className,
-						'data-id': modelElement.getAttribute( 'id' )
-					} );
-				}
-			} );
-
-			// <react> converters (model → editing view)
-			conversion.for( 'editingDowncast' ).elementToElement( {
+			// <react> converters (model → view)
+			conversion.for( 'downcast' ).elementToElement( {
 				model: c.name,
 				view: ( modelElement, viewWriter ) => {
 					// In the editing view, the model <react> corresponds to:
