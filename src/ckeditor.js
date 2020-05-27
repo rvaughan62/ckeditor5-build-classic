@@ -46,8 +46,8 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 
-import SbpRecommendationBox from 'ckeditor5-sbp-plugins/src/sbp-box';
-import SbpAuthorsNoteBox from 'ckeditor5-sbp-plugins/src/sbp-authors-box';
+import SbpRecommendationBox from './sbp-box';
+import SbpAuthorsNoteBox from './sbp-authors-box';
 import Handlebars from './handlebars';
 import SbpAutoformat from './sbpautoformat';
 import ReactPluginEditing from './react-plugin-editing';
