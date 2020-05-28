@@ -198,6 +198,7 @@ ClassicEditor.builtinPlugins = [
 	SpecialCharactersEssentials,
 	Alignment,
 	Mention,
+	Autosave,
 	SbpRecommendationBox,
 	SbpAuthorsNoteBox,
 	Handlebars,
@@ -393,4 +394,4 @@ ClassicEditor.defaultConfig = {
 
 */
 
-export { PresenceList, RealTimeCollaborativeEditing, RealTimeCollaborativeComments, RealTimeCollaborativeTrackChanges, Autosave };
+export { PresenceList, RealTimeCollaborativeEditing, RealTimeCollaborativeComments, RealTimeCollaborativeTrackChanges };
