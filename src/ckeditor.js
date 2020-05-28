@@ -46,11 +46,10 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 
-export { default as RealTimeCollaborativeEditing } from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting';
-export { default as RealTimeCollaborativeComments } from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments';
-export { default as RealTimeCollaborativeTrackChanges } from
-	'@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges';
-export { default as PresenceList } from '@ckeditor/ckeditor5-real-time-collaboration/src/presencelist';
+import RealTimeCollaborativeEditing from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting';
+import RealTimeCollaborativeComments from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments';
+import RealTimeCollaborativeTrackChanges from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges';
+import PresenceList from '@ckeditor/ckeditor5-real-time-collaboration/src/presencelist';
 
 import SbpRecommendationBox from './sbp-box';
 import SbpAuthorsNoteBox from './sbp-authors-box';
@@ -200,6 +199,57 @@ ClassicEditor.builtinPlugins = [
 	Alignment,
 	Mention,
 	Autosave,
+	SbpRecommendationBox,
+	SbpAuthorsNoteBox,
+	Handlebars,
+	SbpAutoformat,
+	ReactPluginEditing
+];
+
+ClassicEditor.colloborationPlugins = [
+	Essentials,
+	UploadAdapter,
+	Autoformat,
+	Bold,
+	Italic,
+	Strikethrough,
+	BlockQuote,
+	CKFinder,
+	EasyImage,
+	Heading,
+	Image,
+	ImageCaption,
+	ImageStyle,
+	ImageToolbar,
+	ImageUpload,
+	ImageResize,
+	Indent,
+	Link,
+	List,
+	TodoList,
+	MediaEmbed,
+	Paragraph,
+	PasteFromOffice,
+	Table,
+	TableToolbar,
+	TableProperties,
+	TableCellProperties,
+	TextTransformation,
+	Font,
+	FontFamily,
+	Highlight,
+	HorizontalLine,
+	PageBreak,
+	RemoveFormat,
+	SpecialCharacters,
+	SpecialCharactersEssentials,
+	Alignment,
+	Mention,
+	Autosave,
+	RealTimeCollaborativeEditing,
+	RealTimeCollaborativeComments,
+	RealTimeCollaborativeTrackChanges,
+	PresenceList,
 	SbpRecommendationBox,
 	SbpAuthorsNoteBox,
 	Handlebars,
