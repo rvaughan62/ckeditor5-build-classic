@@ -257,6 +257,51 @@ ClassicEditor.colloborationPlugins = [
 	ReactPluginEditing
 ];
 
+ClassicEditor.collaborationToolbar = {
+	toolbar: {
+		items: [
+			'heading',
+			'fontFamily',
+			'fontSize',
+			'fontColor',
+			'fontBackgroundColor',
+			'highlight',
+			'|',
+			'bold',
+			'italic',
+			'strikethrough',
+			'handlebars',
+			'removeFormat',
+			'|',
+			'indent',
+			'outdent',
+			'alignment',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'blockQuote',
+			'|',
+			'undo',
+			'redo',
+			'|',
+			'insertTable',
+			'todoList',
+			'horizontalLine',
+			'specialCharacters',
+			'pageBreak',
+			'imageUpload',
+			'link',
+			'mediaEmbed',
+			'sbpRecommendationBox',
+			'sbpAuthorsNoteBox',
+			'comment',
+			'|',
+			'trackChanges'
+		],
+		shouldNotGroupWhenFull: true
+	}
+};
+
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	heading: {
