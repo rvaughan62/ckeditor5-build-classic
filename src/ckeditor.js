@@ -46,6 +46,11 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Mention from '@ckeditor/ckeditor5-mention/src/mention';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 
+import RealTimeCollaborativeEditing from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting';
+import RealTimeCollaborativeComments from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments';
+import RealTimeCollaborativeTrackChanges from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges';
+import PresenceList from '@ckeditor/ckeditor5-real-time-collaboration/src/presencelist';
+
 import SbpRecommendationBox from './sbp-box';
 import SbpAuthorsNoteBox from './sbp-authors-box';
 import Handlebars from './handlebars';
@@ -195,7 +200,6 @@ ClassicEditor.builtinPlugins = [
 	Mention,
 	SbpRecommendationBox,
 	SbpAuthorsNoteBox,
-	Autosave,
 	Handlebars,
 	SbpAutoformat,
 	ReactPluginEditing
@@ -333,4 +337,60 @@ ClassicEditor.defaultConfig = {
 				return saveData( editor.getData() );
 			}
 		},
+
+	*** CLOUD SERVICES - Configuration
+	cloudServices: {
+		tokenUrl: 'https://71767.cke-cs.com/token/dev/rqydjABfOub8wOTkf6mnbmgMzizhMar460EXjdSM67D0YzsnwWD7z7aC2Jmd',
+		webSocketUrl: '71767.cke-cs.com/ws',
+		uploadUrl: 'https://71767.cke-cs.com/easyimage/upload/'
+	},
+	collaboration: {
+		channelId: 'document-id'
+	},
+	presenceList: {
+		container: document.querySelector( '#presence-list-container' ),
+		collapseAt: 3,
+		onClick: ( user, element ) => console.log( user, element )
+	}
+
+	*** CLOUD SERVICES - Plugins
+	PresenceList,
+	RealTimeCollaborativeEditing,
+	RealTimeCollaborativeComments,
+	RealTimeCollaborativeTrackChanges
+
+	*** CLOUD SERVICES - Toolbar items
+	'comment',
+	'trackChanges'
+
+	*** CLOUD SERVICES - WatchDog processing
+	... not sure how to do this in react
+
+	*** User setup
+	class CommentsIntegration {
+    constructor( editor ) {
+        this.editor = editor;
+    }
+
+    init() {
+        const usersPlugin = this.editor.plugins.get( 'Users' );
+        const commentsRepositoryPlugin = this.editor.plugins.get( 'CommentsRepository' );
+
+        // Load the users data.
+        for ( const user of appData.users ) {
+            usersPlugin.addUser( user );
+        }
+
+        // Set the current user.
+        usersPlugin.defineMe( appData.userId );
+
+        // Load the comment threads data.
+        for ( const commentThread of appData.commentThreads ) {
+            commentsRepositoryPlugin.addCommentThread( commentThread );
+        }
+    }
+}
+
 */
+
+export { PresenceList, RealTimeCollaborativeEditing, RealTimeCollaborativeComments, RealTimeCollaborativeTrackChanges, Autosave };

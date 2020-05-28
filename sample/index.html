@@ -8,24 +8,51 @@
 			max-width: 800px;
 			margin: 20px auto;
 		}
-	</style>
+		#container {
+			/* To create the column layout. */
+			display: flex;
+
+			/* To make the container relative to its children. */
+			position: relative;
+		}
+
+		#container .ck.ck-editor {
+			/* To stretch the editor to max 700px
+			   (just to look nice for this example but it can be any size). */
+			width: 100%;
+			max-width: 700px;
+		}
+
+		#sidebar {
+		   /* Set some size for the sidebar (it can be any). */
+		   min-width: 300px;
+
+		   /* Add some distance. */
+		   padding: 0 10px;
+		}
+	   </style>
 </head>
 <body>
 
 <h1>CKEditor 5 – classic editor build – development sample</h1>
 
-<div id="editor">
-	<h2>Sample</h2>
+<div id="presence-list-container"></div>
 
-	<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
+<div id="container">
+	<div id="editor">
+		<h2>Sample</h2>
 
-	<code class="handlebars">{{test}}</code>
+		<p>This is an instance of the <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic editor build</a>.</p>
 
-	<figure class="image">
-		<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
-	</figure>
+		<code class="handlebars">{{test}}</code>
 
-	<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+		<figure class="image">
+			<img src="../tests/manual/sample.jpg" alt="Autumn fields" />
+		</figure>
+
+		<p>You can use this sample to validate whether your <a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom build</a> works fine.</p>
+	</div>
+<div id="sidebar"></div>
 </div>
 
 <script src="../build/ckeditor.js"></script>
