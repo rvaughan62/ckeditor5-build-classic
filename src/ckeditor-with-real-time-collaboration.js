@@ -61,10 +61,10 @@ import { customBackgroundColorPalette, customBorderColorPalette, customFontColor
 
 import './custom.css';
 
-export default class ClassicEditorWithRealTimeCollaboration extends ClassicEditorBase {}
+export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
-ClassicEditorWithRealTimeCollaboration.builtinPlugins = [
+ClassicEditor.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -116,7 +116,7 @@ ClassicEditorWithRealTimeCollaboration.builtinPlugins = [
 ];
 
 // Editor configuration.
-ClassicEditorWithRealTimeCollaboration.defaultConfig = {
+ClassicEditor.defaultConfig = {
 	heading: {
 		options: [
 			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },

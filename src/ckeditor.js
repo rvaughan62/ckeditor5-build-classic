@@ -61,10 +61,10 @@ import { customBackgroundColorPalette, customBorderColorPalette, customFontColor
 
 import './custom.css';
 
-export default class ClassicEditor extends ClassicEditorBase {}
+export default class ClassicEditor2 extends ClassicEditorBase {}
 
 // Plugins to include in the build.
-ClassicEditor.builtinPlugins = [
+ClassicEditor2.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -111,7 +111,7 @@ ClassicEditor.builtinPlugins = [
 	ReactPluginEditing
 ];
 
-ClassicEditor.colloborationPlugins = [
+ClassicEditor2.colloborationPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
@@ -162,7 +162,7 @@ ClassicEditor.colloborationPlugins = [
 	ReactPluginEditing
 ];
 
-ClassicEditor.collaborationToolbar = {
+ClassicEditor2.collaborationToolbar = {
 	toolbar: {
 		items: [
 			'heading',
@@ -208,7 +208,7 @@ ClassicEditor.collaborationToolbar = {
 };
 
 // Editor configuration.
-ClassicEditor.defaultConfig = {
+ClassicEditor2.defaultConfig = {
 	heading: {
 		options: [
 			{ model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
@@ -329,68 +329,3 @@ ClassicEditor.defaultConfig = {
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
-
-/*
-	*** WARNING: If autosave is on in one editor on a page, it seems all editors call it....
-	CONFIGURING AUTOSAVE
-	autosave: {
-			waitingTime: 5000, // in ms
-			save( editor ) {
-				return saveData( editor.getData() );
-			}
-		},
-
-	*** CLOUD SERVICES - Configuration
-	cloudServices: {
-		tokenUrl: 'https://71767.cke-cs.com/token/dev/rqydjABfOub8wOTkf6mnbmgMzizhMar460EXjdSM67D0YzsnwWD7z7aC2Jmd',
-		webSocketUrl: '71767.cke-cs.com/ws',
-		uploadUrl: 'https://71767.cke-cs.com/easyimage/upload/'
-	},
-	collaboration: {
-		channelId: 'document-id'
-	},
-	presenceList: {
-		container: document.querySelector( '#presence-list-container' ),
-		collapseAt: 3,
-		onClick: ( user, element ) => console.log( user, element )
-	}
-
-	*** CLOUD SERVICES - Plugins
-	PresenceList,
-	RealTimeCollaborativeEditing,
-	RealTimeCollaborativeComments,
-	RealTimeCollaborativeTrackChanges
-
-	*** CLOUD SERVICES - Toolbar items
-	'comment',
-	'trackChanges'
-
-	*** CLOUD SERVICES - WatchDog processing
-	... not sure how to do this in react
-
-	*** User setup
-	class CommentsIntegration {
-    constructor( editor ) {
-        this.editor = editor;
-    }
-
-    init() {
-        const usersPlugin = this.editor.plugins.get( 'Users' );
-        const commentsRepositoryPlugin = this.editor.plugins.get( 'CommentsRepository' );
-
-        // Load the users data.
-        for ( const user of appData.users ) {
-            usersPlugin.addUser( user );
-        }
-
-        // Set the current user.
-        usersPlugin.defineMe( appData.userId );
-
-        // Load the comment threads data.
-        for ( const commentThread of appData.commentThreads ) {
-            commentsRepositoryPlugin.addCommentThread( commentThread );
-        }
-    }
-}
-
-*/
