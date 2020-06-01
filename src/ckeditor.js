@@ -344,6 +344,8 @@ ClassicEditor.defaultConfig = {
 	language: 'en'
 };
 
+ClassicEditor.Context = Context;
+
 /*
 	*** WARNING: If autosave is on in one editor on a page, it seems all editors call it....
 	CONFIGURING AUTOSAVE
