@@ -165,18 +165,18 @@ ClassicEditor.colloborationPlugins = [
 ClassicEditor.collaborationToolbar = {
 	toolbar: {
 		items: [
-			'bold',
-			'italic',
-			'strikethrough',
-			'handlebars',
-			'removeFormat',
-			'|',
 			'heading',
 			'fontFamily',
 			'fontSize',
 			'fontColor',
 			'fontBackgroundColor',
 			'highlight',
+			'|',
+			'bold',
+			'italic',
+			'strikethrough',
+			'handlebars',
+			'removeFormat',
 			'|',
 			'indent',
 			'outdent',
@@ -197,12 +197,11 @@ ClassicEditor.collaborationToolbar = {
 			'imageUpload',
 			'link',
 			'mediaEmbed',
+			'sbpRecommendationBox',
+			'sbpAuthorsNoteBox',
 			'comment',
 			'|',
-			'trackChanges',
-			'|',
-			'sbpRecommendationBox',
-			'sbpAuthorsNoteBox'
+			'trackChanges'
 		],
 		shouldNotGroupWhenFull: true
 	}
