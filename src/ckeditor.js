@@ -5,6 +5,7 @@
 
 // The editor creator to use.
 import ClassicEditorBase from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+import ContextBase from '@ckeditor/ckeditor5-core/src/context';
 
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials';
 import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter';
@@ -49,6 +50,13 @@ import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 import RealTimeCollaborativeEditing from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativeediting';
 import RealTimeCollaborativeComments from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments';
 import RealTimeCollaborativeTrackChanges from '@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativetrackchanges';
+
+export { default as ContextWatchdog } from '@ckeditor/ckeditor5-watchdog/src/contextwatchdog';
+import CloudServicesCommentsAdapter from
+	'@ckeditor/ckeditor5-real-time-collaboration/src/realtimecollaborativecomments/cloudservicescommentsadapter';
+import CommentsRepository from '@ckeditor/ckeditor5-comments/src/comments/commentsrepository';
+import NarrowSidebar from '@ckeditor/ckeditor5-comments/src/annotations/narrowsidebar';
+import WideSidebar from '@ckeditor/ckeditor5-comments/src/annotations/widesidebar';
 import PresenceList from '@ckeditor/ckeditor5-real-time-collaboration/src/presencelist';
 
 import SbpRecommendationBox from './sbp-box';
@@ -62,6 +70,13 @@ import { customBackgroundColorPalette, customBorderColorPalette, customFontColor
 import './custom.css';
 
 export default class ClassicEditor extends ClassicEditorBase {}
+
+export class Context extends ContextBase {}
+
+// Plugins to include in the context.
+Context.builtinPlugins = [
+	CloudServicesCommentsAdapter, CommentsRepository, NarrowSidebar, WideSidebar, PresenceList
+];
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
@@ -154,7 +169,6 @@ ClassicEditor.colloborationPlugins = [
 	RealTimeCollaborativeEditing,
 	RealTimeCollaborativeComments,
 	RealTimeCollaborativeTrackChanges,
-	PresenceList,
 	SbpRecommendationBox,
 	SbpAuthorsNoteBox,
 	Handlebars,
